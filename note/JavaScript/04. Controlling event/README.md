@@ -44,7 +44,7 @@
   - 대표적인 이벤트 핸들러 중 하나
   - 특정 이벤트를 DOM 요소가 수신할 때마다 콜백 함수를 호출
 
-![Alt text](images/imgae.png)
+![Alt text](images/image.png)
 
 ### .addEventListener(type, handler)
   - type
@@ -59,22 +59,22 @@
 ### addEventListener 활용
   - "버튼을 클릭하면 버튼 요소 출력하기"
   - 버튼에 이벤트 처리기를 부착하여 클릭 이벤트가 발생하면 이벤트가 발생한 버튼정보를 출력<br>
-  ![Alt text](images/imgae-1.png)
+  ![Alt text](images/image-1.png)
   - 요소에 addEventListener를 부착하게 되면 내부의 this 값은 대상 요소를 가리키게 됨 (event 객체의 currnetTarget 속성 값과 동일)<br>
-  ![Alt text](images/imgae-2.png)
+  ![Alt text](images/image-2.png)
 
 ### addEventListener의 콜백 함수 특징
   - 발생한 이벤트를 나타내는 Event 객체를 유일한 매개변수로 받음
   - 아무것도 반환하지 않음<br>
-  ![Alt text](images/imgae-3.png)
+  ![Alt text](images/image-3.png)
 
 ## 버블링
 
 ### 버블링 개요
   - 핸들러는 form 요소에 할당되어 있지만 div나 p 요소 같은 중첩된 요소를 클릭해도 동작함
   - 왜 div나 p를 클릭했음에도 form에 할당된 핸들러가 동작하는가?<br>
-  ![Alt text](images/imgae-4.png)<br>
-  ![Alt text](images/imgae-5.png)
+  ![Alt text](images/image-4.png)<br>
+  ![Alt text](images/image-5.png)
 
 ### 버블링 (Bubbling)
   - 한 요소에 이벤트가 발생하면, 이 요소에 할당된 핸들러가 동작하고, 이어서 부모 요소의 핸들러가 동작하는 현상
@@ -83,10 +83,10 @@
 
 ### 버블링 예시
   - 가장 안쪽의 \<p> 요소를 클릭하면 p -> div -> form 손서로 3개의 이벤트 핸들러가 동작<br>
-  ![Alt text](images/imgae-6.png)
+  ![Alt text](images/image-6.png)
 
 ### 이벤트가 정확히 어디서 발생했는지 접근할 수 있는 방법
-![Alt text](images/imgae-7.png)
+![Alt text](images/image-7.png)
 
 ### 'target' & 'currentTarget' 속성
   - 'target' 속성
@@ -102,16 +102,16 @@
 ### 'target' & 'currentTarget' 예시
   - 세 요소 중 가장 최상위 요소인 outerouter요소에만 이벤트 핸드러가 부착
   - 각 요소를 클릭 했을 때 event의 target과 currentTarget의 차이 비교<br>
-  ![Alt text](images/imgae-8.png)
+  ![Alt text](images/image-8.png)
   - 'target'
     - 실제 이벤트가 발생하는 요소를 가리킴
   - 'currentTarget'
     - 핸들러가 연결된 outerouter 요소만을 가리킴
   - 핸들러는 outerouter에 하나 밖에 없지만 이 핸들러에서 outerouter의 내부 모든 하위 요소에서 발생하는 클릭 이벤트를 잡아내고 있음
   - 클릭 이벤트가 어디서 발생했든 상관없이 outerouter까지 이벤트가 버블링 되어 핸들러를 실행시키기 때문<br>
-  ![Alt text](images/imgae-9.png)
+  ![Alt text](images/image-9.png)
 
-![Alt text](images/imgae-10.png)
+![Alt text](images/image-10.png)
 
 <br>
 <br>
@@ -127,7 +127,7 @@
 
 ### 1. click 이벤트 실습
   - 버튼을 클릭하면 숫자를 1씩 증가<br>
-  ![Alt text](images/imgae-11.png)
+  ![Alt text](images/image-11.png)
     
   ```html
   <!-- click-event.html -->
@@ -159,7 +159,7 @@
 
 ### 2. input 이벤트 실습
   - 사용자의 입력 값을 실시간으로 출력하기<br>
-  ![Alt text](images/imgae-12.png)
+  ![Alt text](images/image-12.png)
 
   ```html
   <!-- input-event.html -->
@@ -195,11 +195,11 @@
   - currentTarget은 이벤트가 처리되는 동안에만 사용할 수 있기 때문
   - 대신 console.log(event.currentTarget)을 사용하여 콘솔에서 확인 가능
   - currentTarget 이후의 속성 값들은 **'target'을 참고해서 사용하기**<br>
-  ![Alt text](images/imgae-13.png)
+  ![Alt text](images/image-13.png)
 
 ### 3. click & input 이벤트 실습
   - 사용자의 입력 값을 실시간으로 출력 + 버튼을 클릭하면 출력한 값의 CSS 스타일을 변경하기<br>
-  ![Alt text](images/imgae-14.png)
+  ![Alt text](images/image-14.png)
 
   ```html
   <!-- click-input-event.html -->
@@ -244,7 +244,7 @@
   ```
 
   ### 4. todo 실습
-  ![Alt text](images/imgae-15.png)
+  ![Alt text](images/image-15.png)
 
   ```html
   <!-- todo.html -->
@@ -280,10 +280,10 @@
     1. 빈 문자열 입력 방지
     2. 입력이 없을 경우 경고 대화상자를 띄움
 
-  ![Alt text](images/imgae-16.png)
+  ![Alt text](images/image-16.png)
 
 ### 5. 로또 번호 생성기 실습
-![Alt text](images/imgae-17.png)
+![Alt text](images/image-17.png)
 
   ```html
   <!-- lottery.html -->
@@ -338,7 +338,7 @@
 
 ### 이벤트 동작 취소 실습
   - copy 이벤트 동작 취소<br>
-  ![Alt text](images/imgae-18.png)
+  ![Alt text](images/image-18.png)
 
   ```html
   <h1>중요한 내용</h1>
@@ -378,4 +378,4 @@
 
 ### addEventListener에서의 화살표 함수 주의사항
   - 화살표 함수는 자신만의 this를 가지지 않기 때문에 자신을 포함하고 있는 함수의 this를 상속받음
-  ![Alt text](images/imgae-19.png)
+  ![Alt text](images/image-19.png)
