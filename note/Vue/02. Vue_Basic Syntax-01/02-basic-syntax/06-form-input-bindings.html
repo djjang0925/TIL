@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 결론 - 한글을 사용하려면 v-bind와 v-on을 사용해야 한다. -->
+    <p>{{ inputText1 }}</p>
+    <input type="text" @input="onInput" :value="inputText1">
+
+    <p>{{ inputText2 }}</p>
+    <!-- v-model의 경우 영어처리와 다른 문자들의 경우 글자가 하나씩 밀린다. -->
+    <input type="text" v-model="inputText2">
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const inputText1 = ref('')
+        const inputText2 = ref('')
+        const onInput = function (event) {
+          inputText1.value = event.currentTarget.value
+        }
+
+        return {
+          inputText1,
+          inputText2,
+          onInput,
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

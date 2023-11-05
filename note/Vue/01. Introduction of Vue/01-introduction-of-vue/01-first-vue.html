@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- vue의 영향을 받는 구역 -->
+  <div id="app">
+    <h1>{{ message }}</h1>
+    <button @click="count++">
+      Count is: {{ count }}
+    </button>
+    <!-- 같은 변수를 여러번 불러와도 한번만 선언하면 다같이 변경된다. -->
+    <p>{{ count }}</p>
+    <h3>{{ count }}</h3>
+  </div>
+  <!-- id가 app인 태그의 구역까지만 -->
+  
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // 구조 분해 할당 - 배열 또는 객체를 분해하여 속성을 변수에 쉽게 할당할 수 있는 문법
+    const { createApp, ref } = Vue
+
+    // Vue 인스턴스
+    const app = createApp({
+      // 인자(메서드로 들어감)
+      setup() {
+        const message = ref('Hello vue!')
+        const count = ref(0)
+
+        return {
+          message,
+          count
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
