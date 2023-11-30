@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <div id="root"></div>
+</body>
+
+<!-- react-dom: react를 통해 생성된 것들을 html에 작성하게 해주는 것 -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script>
+  // 실제로 사용하는 방법은 아님
+
+  // react로 생성한 태그들을 위치시킬 태그를 불러옴
+  const root = document.getElementById("root");
+
+  // 1. span태그를 생성함(페이지에는 올라가지 않음)
+  // createElement(태그, 프롭스, 콘텐츠)
+  const h3 = React.createElement(
+    "h3", { 
+      id: "title",
+      onMouseEnter: () => console.log("mouse enter"),
+    },
+    "Hello I'm a span"
+  );
+
+  const btn = React.createElement(
+    "button", {
+      onClick: () => console.log("I'm clicked"),
+      style: {
+        backgroundColor: "tomato",
+      },
+    }, 
+    "Click me"
+  );
+
+  const container = React.createElement("div", null, [h3, btn])
+
+  // 2. html에 배치
+  ReactDOM.render(container, root);
+</script>
+
+</html>

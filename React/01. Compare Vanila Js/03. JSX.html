@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <div id="root"></div>
+</body>
+
+<!-- react-dom: react를 통해 생성된 것들을 html에 작성하게 해주는 것 -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  const root = document.getElementById("root");
+
+  function Title() {
+    return (
+      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+        Hello I'm a title
+      </h3>
+
+    )
+  };
+
+  const Button = () => (
+    <button
+      style={{
+        backgroundColor: "tomato"
+      }}
+      onClick={() => console.log("i'm clicked")}
+    >
+      Click me
+    </button>
+  );
+
+  const Container = () => (
+    <div>
+      <Title />
+      <Button />
+    </div>
+  );
+
+  ReactDOM.render(<Container />, root);
+</script>
+
+</html>
