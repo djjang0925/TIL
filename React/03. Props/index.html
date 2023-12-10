@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  function Btn({ text, onClick }) {
+    console.log(text, "was rendered");
+    return (
+      <button
+        onClick={onClick}
+        style={{
+          backgroundColor: "tomato",
+          color: "white",
+          padding: "10px 20px",
+          border: 0,
+          borderRadius: 10,
+        }}
+      >
+        {text}
+      </button>
+    );
+  }
+  // 버튼 클릭시 모든 버튼이 다시 렌더링 되는 현상을 막아주는 역할
+  const MemorizedBtn = React.memo(Btn)
+  function App() {
+    const [value, setValue] = React.useState("Save Changes");
+    const changeValue = () => setValue("Revert Changes");
+    return (
+      <div>
+        <MemorizedBtn text={value} onClick={changeValue} />
+        <MemorizedBtn text="Continue" />
+      </div>
+    );
+  }
+  const root = document.getElementById("root");
+  ReactDOM.render(<App />, root);
+</script>
+
+</html>
