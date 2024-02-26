@@ -1,0 +1,21 @@
+# server port setting
+server:
+  port: 8081
+
+# database sync setting
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/crud?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: Todaerika3!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+
+  # spring data spa setting
+  jpa:
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create

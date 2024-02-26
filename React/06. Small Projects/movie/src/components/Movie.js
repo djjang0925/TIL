@@ -21,7 +21,7 @@ const Movie = ({ id, coverImg, title, year, summary, genres }) => {
           <Link to={`${process.env.PUBLIC_URL}/${id}`}>{title}</Link>
           ({year})
         </h2>
-        <p>{summary}</p>
+        <p>{summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}</p>
         <ul>
           {genres == null
             ? ""
