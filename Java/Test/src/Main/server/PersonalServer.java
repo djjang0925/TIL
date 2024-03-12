@@ -1,4 +1,4 @@
-package Main;
+package Main.server;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
